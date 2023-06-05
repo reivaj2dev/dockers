@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  webmin:
+    image: webmin-debian:1.0
+    hostname: debian-py
+    ports:
+     - '127.0.0.1:10000:10000'
+    command: /bin/bash -c '/etc/init.d/webmin start && /etc/init.d/webmin status && vim zombie.run'

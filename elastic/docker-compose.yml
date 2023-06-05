@@ -1,0 +1,27 @@
+version: '2.2'
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    container_name: es01
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - cluster.initial_master_nodes=es01
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - c:\docker\elastic\master\data\:/usr/share/elasticsearch/data/
+      - c:\docker\elastic\master\config\:/usr/share/elasticsearch/config/
+      - c:\docker\elastic\master\logs\:/usr/share/elasticsearch/logs/
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge

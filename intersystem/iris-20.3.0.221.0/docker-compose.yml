@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  iris:
+    container_name: iris-dev
+    init: true
+    image: store/intersystems/irishealth-community:2020.4.0.524.0
+     # If your CPU has >8 cores limit InterSystems IRIS CE to 8 with
+    cpuset: "0-7"
+    volumes:
+      - H:\proyectos\docker\intersystem\iris-20.3.0.221.0\persistente\:/durable:rw
+      - H:\proyectos\docker\intersystem\iris-20.3.0.221.0\journals\:/journals:rw
+     # Change /home/user1 to your directory
+    environment:
+     - ISC_DATA_DIRECTORY=/durable/data
+     - ISC_PACKAGE_INSTANCENAME=IRIS
+     - ISC_PACKAGE_INSTALLDIR=/usr/irissys
+     - ISC_PACKAGE_IRISUSER=irisuser
+     - ISC_PACKAGE_IRISGROUP=irisuser
+     - ISC_PACKAGE_MGRUSER=irisowner
+     - ISC_PACKAGE_MGRGROUP=irisowner
+    ports:
+     - 9092:52773
+     - 9091:1972
