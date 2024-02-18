@@ -2,7 +2,7 @@ version: '3.9'
 name: databases
 services:
   postgres:
-    container_name: postgresSQL
+    container_name: postgresSQL-latest
     image: 'postgres:latest'
     restart: always
     volumes:
