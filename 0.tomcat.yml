@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  tomcat:
+    image: jcruzherrera/tomcat:lastest
+    hostname: tomcatweb
+    restart: always
+    volumes:
+      - H:\proyectos\docker\tomcat\tomcat-files\conf\:/usr/local/apache-tomcat-9.0.43/conf
+      - H:\proyectos\docker\tomcat\tomcat-files\logs\:/usr/local/apache-tomcat-9.0.43/logs
+      - H:\proyectos\docker\tomcat\tomcat-files\webapps\:/usr/local/apache-tomcat-9.0.43/webapps
+    ports:
+     - '8080:8080'
+    command: /bin/bash -c '/usr/local/apache-tomcat-9.0.43/bin/catalina.sh start && tail -f /usr/local/apache-tomcat-9.0.43/logs/catalina.out'

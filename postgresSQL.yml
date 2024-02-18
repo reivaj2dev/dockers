@@ -1,0 +1,13 @@
+version: '3.9'
+name: databases
+services:
+  postgres:
+    container_name: postgresSQL
+    image: 'postgres:latest'
+    restart: always
+    volumes:
+      - H:\docker-data\postgre-sql\data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=6251
+    ports:
+      - '5432:5432'

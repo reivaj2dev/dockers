@@ -3,7 +3,7 @@ services:
   iris:
     container_name: iris-dev
     init: true
-    image: store/intersystems/irishealth-community:2020.4.0.524.0
+    image: intersystemsdc/irishealth-community:latest
      # If your CPU has >8 cores limit InterSystems IRIS CE to 8 with
     cpuset: "0-7"
     volumes:

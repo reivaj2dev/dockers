@@ -7,7 +7,7 @@ services:
       MYSQL_DATABASE: 'botmoney'
       MYSQL_USER: 'botmoney'
       MYSQL_PASSWORD: 'botmoney01.'
-      MYSQL_ROOT_PASSWORD: '*****'
+      MYSQL_ROOT_PASSWORD: '6251eFs'
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
