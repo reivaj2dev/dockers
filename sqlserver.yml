@@ -19,8 +19,8 @@ services:
       - app-network-public
     restart: always
     env_file:
-      - sqlserver-conf\sqlserver.env
-      - sqlserver-conf\sapassword.env
+      - conf\sqlserver\sqlserver.env
+      - conf\sqlserver\sapassword.env
     ports:
       - '1433:1433'
     volumes:
