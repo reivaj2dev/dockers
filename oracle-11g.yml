@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  oracle:
+    build:
+      context: .
+      dockerfile: conf/oracle-11g/Dockerfile
+    container_name: oracle11g
+    ports:
+      - "1521:1521"
+      - "8080:8080"
+    environment:
+      - ORACLE_ALLOW_REMOTE=true
+      - ORACLE_DISABLE_ASYNCH_IO=true
+      - ORACLE_ENABLE_XDB=true
+    volumes:
+      - oracle_data:/u01/app/oracle
+
+volumes:
+  oracle_data:

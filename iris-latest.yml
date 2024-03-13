@@ -1,11 +1,14 @@
 version: "3.9"
 name: intersystems-iris
+
 services:
   iris:
+    hostname: iris.home
     container_name: iris-dev
     init: true
+    restart: always
     image: intersystemsdc/irishealth-community:latest
-     # If your CPU has >8 cores limit InterSystems IRIS CE to 8 with
+    # If your CPU has >8 cores limit InterSystems IRIS CE to 8 with
     cpuset: "0-7"
     volumes:
       - H:\proyectos\docker\intersystem\iris-20.3.0.221.0\persistente\:/durable:rw
